@@ -75,7 +75,6 @@ matrix& matrix::operator= (const matrix& other){
 }
 
 matrix::matrix(const matrix& other){
-    cerr << "copying" << endl;
     rows = other.rows;
     cols = other.cols;
     x = _new_2d_array(other.rows, other.cols, 0.0);
