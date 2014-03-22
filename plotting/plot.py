@@ -19,12 +19,15 @@ def main():
     
     x = []; y = []
     plot(x, y, "o-", alpha=.7, linewidth=3, label="")
-    
-    
-    
 
 
+def plot_by_col(data, xcol, ycol, testcol, testval, label1):
+    
+    x = [i[xcol] for i in data if i[testcol] == testval]
+    y = [i[ycol] for i in data if i[testcol] == testval]
+    plot(x, y, "o-", alpha=.7, linewidth=3, label=label1)
 
+        
 def save_plot(plt, ax, path):
     
     lgd = ax.legend( bbox_to_anchor=(1., 1.), loc="best",
@@ -32,8 +35,7 @@ def save_plot(plt, ax, path):
 
     print "saving to output: "+path
     # savefig(output, box_extra_artists=(lgd,), bbox_inches='tight')
-    ax.savefig(path, bbox_inches='tight')
-
+    savefig(path, bbox_inches='tight')
 
 def new_plot(title = "", xaxis = "", yaxis = "", logx=False, logy=False):
 
